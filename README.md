@@ -43,4 +43,7 @@ This is more than just a project; it's your opportunity to shine and convince yo
 - 1 Load Balancer
 
 
+## Useful Docs 
+[ Civo loadbalancers](https://www.civo.com/docs/kubernetes/load-balancers)
 
+[ Civo K8s](https://www.civo.com/docs/kubernetes)
