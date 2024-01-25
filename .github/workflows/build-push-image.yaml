@@ -8,7 +8,9 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -17,14 +19,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: saintskeeper
-        password: ${{ secrets.BUILD_IMAGE_SECRET }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Docker image tag
       id: set-tag
       run: echo "::set-output name=tag::ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${GITHUB_RUN_NUMBER}"
 
-    - name: Build and push Docker image (nextjs)
+    - name: Build and push Docker image (api-proflyt)
       uses: docker/build-push-action@v2
       with:
         context: .
