@@ -47,3 +47,8 @@ This is more than just a project; it's your opportunity to shine and convince yo
 [ Civo loadbalancers](https://www.civo.com/docs/kubernetes/load-balancers)
 
 [ Civo K8s](https://www.civo.com/docs/kubernetes)
+
+
+
+### Objectives 
+- Dockerfile and write a github action to build container 
