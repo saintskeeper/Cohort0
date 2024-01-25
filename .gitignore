@@ -1,3 +1,7 @@
 node_modules
 
 .next/
+
+kubeconfig
+
+.DS_Store
