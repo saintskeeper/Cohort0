@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>🍪 Cookie Clicker</title>
+        <title>🍪 Katie Cookie Clicker</title>
       </Head>
 
       <main>
