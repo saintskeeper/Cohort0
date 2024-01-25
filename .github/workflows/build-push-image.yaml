@@ -26,7 +26,7 @@ jobs:
       id: set-tag
       run: echo "::set-output name=tag::ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${GITHUB_RUN_NUMBER}"
 
-    - name: Build and push Docker image (api-proflyt)
+    - name: Build and push Docker image (NextJs Cookies :) )
       uses: docker/build-push-action@v2
       with:
         context: .
