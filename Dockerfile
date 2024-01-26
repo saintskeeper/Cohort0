@@ -1,17 +1,24 @@
-# Stage 1: Build the Next.js app
-FROM node:alpine as builder
+# Use an official Node.js runtime as a parent image
+FROM node:latest as builder
+
+# Set the working directory in the container
 WORKDIR /app
-COPY package*.json yarn.lock ./
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+COPY yarn.lock ./
+
+# Install dependencies
 RUN yarn install
+
+# Copy the rest of the application code to the working directory
 COPY . .
+
+# Build the Next.js app
 RUN yarn build
 
-# Stage 2: Run the app
-FROM node:alpine
-WORKDIR /app
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
+# Expose the port that Next.js will run on
 EXPOSE 3000
+
+# Define the command to run your application
 CMD ["yarn", "start"]
