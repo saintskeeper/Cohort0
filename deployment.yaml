@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cookie-deployment
+  labels:
+    app: cookie-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cookie-app
+  template:
+    metadata:
+      labels:
+        app: cookie-app
+    spec:
+      containers:
+      - name: cookie-clicker-game
+        image: ghcr.io/saintskeeper/cohort0:10
+        ports:
+        - containerPort: 3000
