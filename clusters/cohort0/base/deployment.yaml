@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: cookie-clicker-game
-        image: ghcr.io/saintskeeper/cohort0:10
+        image: ghcr.io/saintskeeper/cohort0:12
         ports:
         - containerPort: 3000
