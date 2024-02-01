@@ -79,3 +79,12 @@ Deploying a Next.js application on Kubernetes with Prometheus, Grafana, and Cert
 - **Direct Serving**: For simpler applications, especially those that require dynamic rendering, serving directly from Next.js can be more suitable. Kubernetes' native features can handle many of the tasks that Nginx would otherwise manage.
 
 Ultimately, the decision depends on your specific application needs, traffic patterns, and how comfortable you are managing either setup. In a Kubernetes environment, both options are viable and can be integrated effectively with Prometheus, Grafana, and Cert-Manager.
+
+################ CERT MANAGER #######################
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.yaml
+
+kubectl get pods --namespace cert-manager
+
+create clusterissuer yaml file
+
+create secret for cloudfare

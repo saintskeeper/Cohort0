@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cookieclicker
+  namespace: cookie-deployment
+spec:
+  secretName: cookieclicker-secret
+  issuerRef:
+    name: acme-issuer
+    # kind: Issuer
+    # - or -
+    kind: ClusterIssuer
+  dnsNames:
+    - 'cookieclicker.gm-nig-ltd.tech'
