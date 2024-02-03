@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cookie-deployment
+  namespace: cookie-deployment # Namespace required becaue certificate is always bound to a namespace
   labels:
     app: cookie-app
 spec:
@@ -17,5 +18,6 @@ spec:
       containers:
       - name: cookie-clicker-game
         image: ghcr.io/saintskeeper/cohort0:12
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
