@@ -10,6 +10,7 @@ import Clicker from "../components/Clicker";
 import Autoclicker from "../components/AutoClicker";
 import styles from "../styles/Home.module.css";
 
+// const { sendClickEventToPrometheus} = require('../prometheus_custom_metrics');
 export default function Home() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [upgradeState, upgradeDispatch] = useReducer(
@@ -40,6 +41,8 @@ export default function Home() {
     setShowButton(false);
     setBoostActive(true);
     timeoutId.current = setTimeout(() => setBoostActive(false), 30000);
+    // sendClickEventToPrometheus();
+    
   };
 
   useEffect(() => {
@@ -55,6 +58,8 @@ export default function Home() {
 
   useEffect(() => {
     callback.current = () => {
+      // Log click event to Prometheus using the new function
+      // sendClickEventToPrometheus();
       const currentClics = state.clicks.amount;
       const autoclicks = upgradeState.clickUpgrade.multiplier;
       const clickMultiplier = upgradeState.autoUpgrade.multiplier;
